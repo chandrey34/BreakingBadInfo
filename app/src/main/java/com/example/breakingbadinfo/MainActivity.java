@@ -8,66 +8,95 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    //объявляем кнопки
-    private Button series_btn, character_btn, quotes_btn, death_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //присваеваем кнопкам ссылки
-        series_btn = (Button) findViewById(R.id.series_btn);
-        character_btn = (Button) findViewById(R.id.character_btn);
-        quotes_btn = (Button) findViewById(R.id.quotes_btn);
-        death_btn = (Button) findViewById(R.id.death_btn);
 
-        //обработчик события по нажатию на кнопку Серии
-        series_btn.setOnClickListener(new View.OnClickListener() {
+        //объявляем кнопки и присваеваем кнопкам ссылки
+        Button series_btn = (Button) findViewById(R.id.series_btn);
+        Button character_btn = (Button) findViewById(R.id.character_btn);
+        Button quotes_btn = (Button) findViewById(R.id.quotes_btn);
+        Button death_btn = (Button) findViewById(R.id.death_btn);
+
+        //обработчик события по нажатию на кнопки с главного экрана
+        View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSeriesActivity();
+                switch (view.getId()) {
+                    case R.id.series_btn:
+                        openSeriesActivity();
+                        break;
+                    case R.id.character_btn:
+                        openCharacterActivity();
+                        break;
+                    case R.id.quotes_btn:
+                        openQuotesActivity();
+                        break;
+                    case R.id.death_btn:
+                        openDeathActivity();
+                        break;
+                }
             }
-        });
-        //обработчик события по нажатию на кнопку Персонажи
-        character_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openCharacterActivity();
-            }
-        });
-        //обработчик события по нажатию на кнопку Цитаты
-        quotes_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openQuotesActivity();
-            }
-        });
-        //обработчик события по нажатию на кнопку Смерти
-        death_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDeathActivity();
-            }
-        });
+        };
+        series_btn.setOnClickListener(onClickListener);
+        character_btn.setOnClickListener(onClickListener);
+        quotes_btn.setOnClickListener(onClickListener);
+        death_btn.setOnClickListener(onClickListener);
     }
+
+//        //обработчик события по нажатию на кнопку Серии
+//        series_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openSeriesActivity();
+//                openCharacterActivity();
+//                openQuotesActivity();
+//                openDeathActivity();
+//            }
+//        });
+//        //обработчик события по нажатию на кнопку Персонажи
+//        character_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openCharacterActivity();
+//            }
+//        });
+//        //обработчик события по нажатию на кнопку Цитаты
+//        quotes_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openQuotesActivity();
+//            }
+//        });
+//        //обработчик события по нажатию на кнопку Смерти
+//        death_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDeathActivity();
+//            }
+//        });
+//}
+
 
     //метод перехода на другой экран с Сериями
     public void openSeriesActivity() {
         Intent intent = new Intent(this, SeriesActivity.class);
         startActivity(intent);
     }
-    //метод перехода на другой экран с Персонажами
+
     public void openCharacterActivity() {
         Intent intent = new Intent(this, CharacterActivity.class);
         startActivity(intent);
     }
-    //метод перехода на другой экран с Цитатами
+
     public void openQuotesActivity() {
         Intent intent = new Intent(this, QuotesActivity.class);
         startActivity(intent);
     }
-    //метод перехода на другой экран с Смертями
+
     public void openDeathActivity() {
         Intent intent = new Intent(this, DeathActivity.class);
         startActivity(intent);
@@ -75,3 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
+
+
+
+
+
+

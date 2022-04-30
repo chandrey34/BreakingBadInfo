@@ -9,25 +9,25 @@
 
     <Button
         android:id="@+id/character_btn"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="105dp"
         android:layout_marginTop="234dp"
         android:layout_marginEnd="20dp"
-        android:text="@string/сharacters_nameBtn"
         android:backgroundTint="@color/colorBtn"
+        android:text="@string/сharacters_nameBtn"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/death_btn"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="105dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="195dp"
-        android:text="@string/death_nameBtn"
         android:backgroundTint="@color/colorBtn"
+        android:text="@string/death_nameBtn"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,13 +35,13 @@
 
     <Button
         android:id="@+id/quotes_btn"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="105dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="19dp"
         android:layout_marginBottom="195dp"
-        android:text="@string/quotes_nameBtn"
         android:backgroundTint="@color/colorBtn"
+        android:text="@string/quotes_nameBtn"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,12 +49,12 @@
 
     <Button
         android:id="@+id/series_btn"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="105dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="234dp"
-        android:text="@string/series_nameBtn"
         android:backgroundTint="@color/colorBtn"
+        android:text="@string/series_nameBtn"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

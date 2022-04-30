@@ -14,6 +14,7 @@
         android:fontFamily="@font/montserrat_alternates_bold"
         android:text="Список сезонов"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="#F4EFEF"
         android:textSize="30dp" />
 
@@ -26,8 +27,8 @@
         android:layout_marginStart="115dp"
         android:layout_marginTop="100sp"
         android:layout_marginEnd="115dp"
-        android:text="Сезон №1"
         android:backgroundTint="@color/colorBtn"
+        android:text="Сезон №1"
         android:textAllCaps="false" />
 
     <Button
@@ -40,8 +41,8 @@
         android:layout_marginStart="115dp"
         android:layout_marginTop="50sp"
         android:layout_marginEnd="115dp"
-        android:text="Сезон №2"
         android:backgroundTint="@color/colorBtn"
+        android:text="Сезон №2"
         android:textAllCaps="false" />
 
     <Button
@@ -64,8 +65,8 @@
         android:layout_marginStart="115dp"
         android:layout_marginTop="50sp"
         android:layout_marginEnd="115dp"
-        android:text="Сезон №4"
         android:backgroundTint="@color/colorBtn"
+        android:text="Сезон №4"
         android:textAllCaps="false" />
 
     <Button
@@ -76,8 +77,8 @@
         android:layout_marginStart="115dp"
         android:layout_marginTop="50sp"
         android:layout_marginEnd="115dp"
-        android:text="Сезон №5"
         android:backgroundTint="@color/colorBtn"
+        android:text="Сезон №5"
         android:textAllCaps="false" />
 
 </RelativeLayout>
