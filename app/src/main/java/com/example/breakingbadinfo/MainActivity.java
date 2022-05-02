@@ -50,26 +50,28 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //метод перехода на другой экран с Сериями
+    //переход на соответствующее activity по нажатию на кнопку Серии, Песонажи, Цитаты, Смерти
     public void openActivity(View view) {
         switch (view.getId()) {
             case R.id.series_btn:
-                Intent intent = new Intent(MainActivity.this, SeriesActivity.class);
-                startActivity(intent);
+                startActivity(SeriesActivity.class);
                 break;
             case R.id.character_btn:
-                Intent intent1 = new Intent(MainActivity.this, CharacterActivity.class);
-                startActivity(intent1);
+                startActivity(CharacterActivity.class);
                 break;
             case R.id.quotes_btn:
-                Intent intent2 = new Intent(this, QuotesActivity.class);
-                startActivity(intent2);
+                startActivity(QuotesActivity.class);
                 break;
             case R.id.death_btn:
-                Intent intent3 = new Intent(this, DeathActivity.class);
-                startActivity(intent3);
+                startActivity(DeathActivity.class);
                 break;
         }
+    }
+
+    //метод реализующий переход на другое activity
+    private void startActivity(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        startActivity(intent);
     }
 }
 
