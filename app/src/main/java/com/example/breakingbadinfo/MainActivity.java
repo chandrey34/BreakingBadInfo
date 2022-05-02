@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //метод реализующий переход на другое activity
-    private void startActivity(Class<?> cls) {
+    private void startActivity(Class<? extends AppCompatActivity> cls) {
         Intent intent = new Intent(this, cls);
         startActivity(intent);
     }
