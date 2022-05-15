@@ -8,7 +8,11 @@
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_death.xml" value="0.11302083333333333" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_quotes.xml" value="0.11302083333333333" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_season.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_series.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_season.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_seasons.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_series_sz1.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
