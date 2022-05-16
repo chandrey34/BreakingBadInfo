@@ -1,17 +1,17 @@
 package com.example.breakingbadinfo;
 
 public class Season {
-    private String number_season;
+    private String numberSeason;
 
-    public Season(String number_season) {
-        this.number_season = number_season;
+    public Season(String numberSeason) {
+        this.numberSeason = numberSeason;
     }
 
-    public String getNumber_season() {
-        return number_season;
+    public String getNumberSeason() {
+        return numberSeason;
     }
 
-    public void setNumber_season(String number_season) {
-        this.number_season = number_season;
+    public void setNumberSeason(String numberSeason) {
+        this.numberSeason = numberSeason;
     }
 }

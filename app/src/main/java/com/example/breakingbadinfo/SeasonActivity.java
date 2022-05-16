@@ -19,11 +19,11 @@ public class SeasonActivity extends AppCompatActivity {
         //вызываем список данных
         setInitialData();
         //объявляем RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rv);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         //упорядочиваем элементы в виде списка с одной колонкой
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //создаем объект адаптера
-        seasonAdapter adapter = new seasonAdapter(this, seasons);
+        SeasonAdapter adapter = new SeasonAdapter(seasons);
         //устанавливаем адаптер
         recyclerView.setAdapter(adapter);
     }
