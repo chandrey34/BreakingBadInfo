@@ -16,7 +16,12 @@ public class SeasonAdapter extends RecyclerView.Adapter<SeasonAdapter.MyViewHold
     ArrayList<Season> seasons;
 
     public SeasonAdapter(ArrayList<Season> seasons) {
+        this.seasons = new ArrayList<>(seasons);
+    }
+
+    public void setList(ArrayList<Season> seasons) {
         this.seasons = seasons;
+        notifyDataSetChanged();
     }
 
     @NonNull
