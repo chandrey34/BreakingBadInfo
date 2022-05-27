@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/arrow_up.xml" value="0.196" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/montserrat_alternates_bold.xml" value="0.284375" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_character.xml" value="0.11302083333333333" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_death.xml" value="0.11302083333333333" />
@@ -12,7 +13,9 @@
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_series.xml" value="0.22826086956521738" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_season.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_seasons.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_seasons1.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_series_sz1.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/number_season.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
