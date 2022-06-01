@@ -3,19 +3,17 @@ package com.example.breakingbadinfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder> {
+public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
+    private ArrayList<String> seriesList;
 
-    private ArrayList<String> arrayList;
-
-    public SeriesAdapter(ArrayList<String> arrayList) {
-        this.arrayList = arrayList;
+    public SeriesAdapter(ArrayList<String> seriesList) {
+        this.seriesList = seriesList;
     }
 
     @NonNull
@@ -27,20 +25,11 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesView
 
     @Override
     public void onBindViewHolder(@NonNull SeriesViewHolder holder, int position) {
-        holder.textViewNumberSeries.setText(arrayList.get(position));
+        holder.bind(seriesList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
-    }
-
-    public static class SeriesViewHolder extends RecyclerView.ViewHolder {
-        private TextView textViewNumberSeries;
-
-        public SeriesViewHolder(@NonNull View itemView) {
-            super(itemView);
-            textViewNumberSeries = itemView.findViewById(R.id.textViewNumberSeries);
-        }
+        return seriesList.size();
     }
 }

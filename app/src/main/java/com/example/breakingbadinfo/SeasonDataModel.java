@@ -2,12 +2,13 @@ package com.example.breakingbadinfo;
 
 import java.util.ArrayList;
 
-public class DataModel {
+public class SeasonDataModel {
     private ArrayList<String> seriesList;
     private String numberSeason;
     private boolean isExpandable;
 
-    public DataModel(ArrayList<String> seriesList, String numberSeason) {
+
+    public SeasonDataModel(ArrayList<String> seriesList, String numberSeason) {
         this.seriesList = seriesList;
         this.numberSeason = numberSeason;
         isExpandable = false;
