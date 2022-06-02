@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
         //обработчик события по нажатию на кнопку Серии
         series_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {t
                 startActivity(SeasonActivity.class);
+
             }
         });
         //обработчик события по нажатию на кнопку Персонажи
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(CharacterActivity.class);
+
             }
         });
         //обработчик события по нажатию на кнопку Цитаты
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(QuotesActivity.class);
+
             }
         });
         //обработчик события по нажатию на кнопку Смерти
@@ -50,9 +53,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     //метод реализующий переход на другое activity
     private void startActivity(Class<? extends AppCompatActivity> cls) {
         Intent intent = new Intent(this, cls);
         startActivity(intent);
+
     }
 }
+
+
+
+
+
+
+
