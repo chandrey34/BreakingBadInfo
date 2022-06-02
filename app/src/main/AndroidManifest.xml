@@ -19,7 +19,8 @@
             android:name=".CharacterActivity"
             android:exported="true" />
         <activity
-            android:name=".SeriesActivity"
+            android:name=".SeasonActivity"
+
             android:exported="true" />
         <activity
             android:name=".MainActivity"

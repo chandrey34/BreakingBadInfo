@@ -23,55 +23,42 @@ public class MainActivity extends AppCompatActivity {
         //обработчик события по нажатию на кнопку Серии
         series_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                openActivity(view);
+            public void onClick(View view) {t
+                startActivity(SeasonActivity.class);
+
             }
         });
         //обработчик события по нажатию на кнопку Персонажи
         character_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openActivity(view);
+                startActivity(CharacterActivity.class);
+
             }
         });
         //обработчик события по нажатию на кнопку Цитаты
         quotes_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openActivity(view);
+                startActivity(QuotesActivity.class);
+
             }
         });
         //обработчик события по нажатию на кнопку Смерти
         death_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openActivity(view);
+                startActivity(DeathActivity.class);
             }
         });
     }
 
-    //переход на соответствующее activity по нажатию на кнопку Серии, Песонажи, Цитаты, Смерти
-    public void openActivity(View view) {
-        switch (view.getId()) {
-            case R.id.series_btn:
-                startActivity(SeriesActivity.class);
-                break;
-            case R.id.character_btn:
-                startActivity(CharacterActivity.class);
-                break;
-            case R.id.quotes_btn:
-                startActivity(QuotesActivity.class);
-                break;
-            case R.id.death_btn:
-                startActivity(DeathActivity.class);
-                break;
-        }
-    }
 
     //метод реализующий переход на другое activity
     private void startActivity(Class<? extends AppCompatActivity> cls) {
         Intent intent = new Intent(this, cls);
         startActivity(intent);
+
     }
 }
 
