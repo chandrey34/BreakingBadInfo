@@ -13,14 +13,14 @@ public class SeasonViewHolder extends RecyclerView.ViewHolder {
     private RelativeLayout expandableLayout;
     private TextView textViewNumberSeason;
     private ImageView imageArrow;
-    private RecyclerView seriesRecyclerView;
+    private RecyclerView seasonRecyclerView;
 
     public SeasonViewHolder(View view) {
         super(view);
         expandableLayout = view.findViewById(R.id.expandableLayout);
         textViewNumberSeason = view.findViewById(R.id.textViewNumberSeason);
         imageArrow = view.findViewById(R.id.imageArrow);
-        seriesRecyclerView = view.findViewById(R.id.seriesRecyclerView);
+        seasonRecyclerView = view.findViewById(R.id.seasonRecyclerView);
     }
 
     public void bind(SeasonDataModel seasonDataModel) {
@@ -33,8 +33,8 @@ public class SeasonViewHolder extends RecyclerView.ViewHolder {
             imageArrow.setImageResource(R.drawable.arrow_down);
         }
         SeriesAdapter seriesAdapter = new SeriesAdapter(seasonDataModel.getSeriesList());
-        seriesRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
-        seriesRecyclerView.setHasFixedSize(true);
-        seriesRecyclerView.setAdapter(seriesAdapter);
+        seasonRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
+        seasonRecyclerView.setHasFixedSize(true);
+        seasonRecyclerView.setAdapter(seriesAdapter);
     }
 }
