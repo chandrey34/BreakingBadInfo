@@ -25,8 +25,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
-        CharacterDataModel characterDataModel = characterList.get(position);
-        holder.bind(characterDataModel);
+        holder.bind(characterList.get(position));
     }
 
     @Override

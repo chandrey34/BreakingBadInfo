@@ -12,18 +12,15 @@ public class CharacterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
-        CharacterDataList.setCharacter();
-        CharacterDataList.setCharacter2();
-        CharacterDataList.setCharacter3();
-        CharacterDataList.setCharacter4();
-        CharacterDataList.setCharacter5();
-        CharacterDataList.setCharacter6();
-        CharacterDataList.setCharacter7();
+
+        CharacterDataList characterDataList = new CharacterDataList();
+        characterDataList.characterList();
+
         RecyclerView recyclerView = findViewById(R.id.recyclerViewCharacter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        CharacterAdapter characterAdapter = new CharacterAdapter(CharacterDataList.getCharacterDataModel());
+        CharacterAdapter characterAdapter = new CharacterAdapter(characterDataList.getCharacterDataModel());
         recyclerView.setAdapter(characterAdapter);
     }
 }

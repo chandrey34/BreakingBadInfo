@@ -13,9 +13,6 @@ public class CharacterDataModel {
         this.characterText = characterText;
     }
 
-
-
-
     public String getCharacterImage() {
         return characterImage;
     }
