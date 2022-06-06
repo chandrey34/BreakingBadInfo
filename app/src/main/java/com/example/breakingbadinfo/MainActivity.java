@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         //обработчик события по нажатию на кнопку Серии
         series_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {t
+            public void onClick(View view) {
                 startActivity(SeasonActivity.class);
 
             }
