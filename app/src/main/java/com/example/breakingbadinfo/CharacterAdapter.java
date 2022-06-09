@@ -10,10 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CharacterAdapter extends RecyclerView.Adapter<CharacterViewHolder> {
-    private ArrayList<CharacterDataModel> characterList;
+    public ArrayList<CharacterDataModel> characterList;
+    private OnCharacterClickListener onCharacterClickListener;
 
-    public CharacterAdapter(ArrayList<CharacterDataModel> characterList) {
+    public CharacterAdapter(OnCharacterClickListener onCharacterClickListener, ArrayList<CharacterDataModel> characterList) {
+        this.onCharacterClickListener = onCharacterClickListener;
         this.characterList = new ArrayList<>(characterList);
+    }
+
+    public void updateDataModel(ArrayList<CharacterDataModel> characterList) {
+        this.characterList = characterList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -25,11 +32,23 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
-        holder.bind(characterList.get(position));
+        CharacterDataModel characterDataModel = characterList.get(position);
+        holder.bind(characterDataModel);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCharacterClickListener.onCharacterClick(characterDataModel);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return characterList.size();
+    }
+
+    public interface OnCharacterClickListener {
+        void onCharacterClick(CharacterDataModel characterDataModel);
     }
 }

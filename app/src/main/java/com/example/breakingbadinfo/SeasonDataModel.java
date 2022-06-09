@@ -18,7 +18,6 @@ public class SeasonDataModel {
         return seriesList;
     }
 
-
     public String getItemText() {
         return numberSeason;
     }
