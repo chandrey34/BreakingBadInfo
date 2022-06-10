@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CharacterAdapter extends RecyclerView.Adapter<CharacterViewHolder> {
-    public ArrayList<CharacterDataModel> characterList;
+    private ArrayList<CharacterDataModel> characterList;
     private OnCharacterClickListener onCharacterClickListener;
 
     public CharacterAdapter(OnCharacterClickListener onCharacterClickListener, ArrayList<CharacterDataModel> characterList) {
@@ -19,7 +19,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterViewHolder> 
     }
 
     public void updateDataModel(ArrayList<CharacterDataModel> characterList) {
-        this.characterList = characterList;
+        this.characterList = new ArrayList<>(characterList);
         notifyDataSetChanged();
     }
 

@@ -24,12 +24,12 @@ public class CharacterInfoActivity extends AppCompatActivity {
 
         //берем ключи которые передали из 1 активити
         Intent intent = getIntent();
-        int imageCharacterInfo = intent.getIntExtra("imageCharacterInfo", 0);
-        String nameCharacterInfo = intent.getStringExtra("nameCharacterInfo");
-        String birthdayCharacterInfo = intent.getStringExtra("birthdayCharacterInfo");
-        String seasonCharacterInfo = intent.getStringExtra("seasonCharacterInfo");
-        String nickNameCharacterInfo = intent.getStringExtra("nickNameCharacterInfo");
-        String portrayedCharacterInfo = intent.getStringExtra("portrayedCharacterInfo");
+        int imageCharacterInfo = intent.getIntExtra(CharacterActivity.IMAGE_CHARACTER_INFO, 0);
+        String nameCharacterInfo = intent.getStringExtra(CharacterActivity.NAME_CHARACTER_INFO);
+        String birthdayCharacterInfo = intent.getStringExtra(CharacterActivity.BIRTHDAY_CHARACTER_INFO);
+        String seasonCharacterInfo = intent.getStringExtra(CharacterActivity.SEASON_CHARACTER_INFO);
+        String nickNameCharacterInfo = intent.getStringExtra(CharacterActivity.NICKNAME_CHARACTER_INFO);
+        String portrayedCharacterInfo = intent.getStringExtra(CharacterActivity.PORTRAYED_CHARACTER_INFO);
 
         //вставляем ключи в разметку
         characterImageInfo.setImageResource(imageCharacterInfo);
