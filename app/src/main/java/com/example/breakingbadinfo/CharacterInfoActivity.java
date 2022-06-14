@@ -22,16 +22,17 @@ public class CharacterInfoActivity extends AppCompatActivity {
         TextView nickNameCharacterTextInfo = findViewById(R.id.nickNameCharacterTextInfo);
         TextView portrayedCharacterTextInfo = findViewById(R.id.portrayedCharacterTextInfo);
 
-        //берем ключи которые передали из 1 активити
-        Intent intent = getIntent();
-        int imageCharacterInfo = intent.getIntExtra(CharacterActivity.IMAGE_CHARACTER_INFO, 0);
-        String nameCharacterInfo = intent.getStringExtra(CharacterActivity.NAME_CHARACTER_INFO);
-        String birthdayCharacterInfo = intent.getStringExtra(CharacterActivity.BIRTHDAY_CHARACTER_INFO);
-        String seasonCharacterInfo = intent.getStringExtra(CharacterActivity.SEASON_CHARACTER_INFO);
-        String nickNameCharacterInfo = intent.getStringExtra(CharacterActivity.NICKNAME_CHARACTER_INFO);
-        String portrayedCharacterInfo = intent.getStringExtra(CharacterActivity.PORTRAYED_CHARACTER_INFO);
+        CharacterDataModel characterDataModel = getIntent().getParcelableExtra(CharacterActivity.CHARACTER_TAG);
 
-        //вставляем ключи в разметку
+//        берем ключи которые передали из 1 активити
+        int imageCharacterInfo = characterDataModel.getCharacterImage();
+        String nameCharacterInfo = characterDataModel.getCharacterText();
+        String birthdayCharacterInfo = characterDataModel.getBirthdayCharacterTextInfo();
+        String seasonCharacterInfo = characterDataModel.getSeasonsCharacterTextInfo();
+        String nickNameCharacterInfo = characterDataModel.getNickNameCharacterTextInfo();
+        String portrayedCharacterInfo = characterDataModel.getPortrayedCharacterTextInfo();
+
+//        вставляем ключи в разметку
         characterImageInfo.setImageResource(imageCharacterInfo);
         nameCharacterTextInfo.setText(nameCharacterInfo);
         birthdayCharacterTextInfo.setText(birthdayCharacterInfo);
