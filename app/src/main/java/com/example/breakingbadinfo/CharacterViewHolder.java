@@ -4,7 +4,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CharacterViewHolder extends RecyclerView.ViewHolder {
@@ -18,7 +20,8 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(CharacterDataModel characterDataModel) {
-        imageViewCharacter.setImageResource(R.drawable.character);
+
+        imageViewCharacter.setImageDrawable(itemView.getResources().getDrawable(characterDataModel.getCharacterImage()));
         textViewCharacter.setText(characterDataModel.getCharacterText());
     }
 }

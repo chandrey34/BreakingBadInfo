@@ -6,11 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-
-import java.util.ArrayList;
-
 public class SeasonActivity extends AppCompatActivity {
-    private ArrayList<SeasonDataModel> seasonDataModel = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
