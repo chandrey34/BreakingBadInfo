@@ -22,6 +22,14 @@
 * Передача данных между Activity
 * Parcelable
 * Позицинионирование элемента внутри ConstraintLayout
+* Передача данных между Fragment
+* Замена Activity на Fragment
+* ...список будет пополняться
+
+#### Что делаю сейчас:
+* FragmentManager
+* Retrofit
+* База данных Room
 
 
 
