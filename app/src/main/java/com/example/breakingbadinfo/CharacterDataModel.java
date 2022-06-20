@@ -21,6 +21,10 @@ public class CharacterDataModel implements Parcelable {
         portrayedCharacterTextInfo = parcel.readString();
     }
 
+    public CharacterDataModel() {
+
+    }
+
     public int getCharacterImage() {
         return characterImage;
     }
