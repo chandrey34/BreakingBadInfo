@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,12 @@ import android.widget.TextView;
 
 
 public class CharacterInfoFragment extends Fragment {
+    public static final String CHARACTER_TAG = "characterTag";
+    CharacterDataModel characterDataModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_character_info, container, false);
 
         ImageView characterImageInfo = view.findViewById(R.id.characterImageInfo);
@@ -26,28 +28,29 @@ public class CharacterInfoFragment extends Fragment {
         TextView nickNameCharacterTextInfo = view.findViewById(R.id.nickNameCharacterTextInfo);
         TextView portrayedCharacterTextInfo = view.findViewById(R.id.portrayedCharacterTextInfo);
 
-        CharacterDataModel characterDataModel = new CharacterDataModel();
-
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            characterDataModel = bundle.getParcelable(CharacterFragment.CHARACTER_TAG);
+            characterDataModel = getArguments().getParcelable(CHARACTER_TAG);
+        } else {
+            throw new IllegalArgumentException();
         }
 
-//        берем ключи которые передали из 1 активити
-        int imageCharacterInfo = characterDataModel.getCharacterImage();
-        String nameCharacterInfo = characterDataModel.getCharacterText();
-        String birthdayCharacterInfo = characterDataModel.getBirthdayCharacterTextInfo();
-        String seasonCharacterInfo = characterDataModel.getSeasonsCharacterTextInfo();
-        String nickNameCharacterInfo = characterDataModel.getNickNameCharacterTextInfo();
-        String portrayedCharacterInfo = characterDataModel.getPortrayedCharacterTextInfo();
+        //берем данные которые передали и вставляем в разметку фрагмента
+        characterImageInfo.setImageResource(characterDataModel.getCharacterImage());
+        nameCharacterTextInfo.setText(characterDataModel.getCharacterText());
+        birthdayCharacterTextInfo.setText(characterDataModel.getBirthdayCharacterTextInfo());
+        seasonsCharacterTextInfo.setText(characterDataModel.getSeasonsCharacterTextInfo());
+        nickNameCharacterTextInfo.setText(characterDataModel.getNickNameCharacterTextInfo());
+        portrayedCharacterTextInfo.setText(characterDataModel.getPortrayedCharacterTextInfo());
 
-//        вставляем ключи в разметку
-        characterImageInfo.setImageResource(imageCharacterInfo);
-        nameCharacterTextInfo.setText(nameCharacterInfo);
-        birthdayCharacterTextInfo.setText(birthdayCharacterInfo);
-        seasonsCharacterTextInfo.setText(seasonCharacterInfo);
-        nickNameCharacterTextInfo.setText(nickNameCharacterInfo);
-        portrayedCharacterTextInfo.setText(portrayedCharacterInfo);
         return view;
+    }
+
+    public static CharacterInfoFragment getInstance(CharacterDataModel characterDataModel) {
+        CharacterInfoFragment fragment = new CharacterInfoFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(CHARACTER_TAG, characterDataModel);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 }

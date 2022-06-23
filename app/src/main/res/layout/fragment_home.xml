@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/breakingbad"
-    tools:context=".MainFragment">
+    tools:context=".HomeFragment">
 
     <Button
         android:id="@+id/season_btn"

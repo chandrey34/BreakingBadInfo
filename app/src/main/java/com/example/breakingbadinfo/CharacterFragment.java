@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 
 public class CharacterFragment extends Fragment implements CharacterAdapter.OnCharacterClickListener {
-    public static final String CHARACTER_TAG = "characterTag";
+
     public static final String CHARACTER_INFO_FRAGMENT_TAG = "characterInfoFragment";
 
     @Override
@@ -29,19 +29,16 @@ public class CharacterFragment extends Fragment implements CharacterAdapter.OnCh
 
         CharacterAdapter characterAdapter = new CharacterAdapter((CharacterAdapter.OnCharacterClickListener) this, characterDataList.getCharacterDataModel());
         recyclerView.setAdapter(characterAdapter);
+
         return view;
     }
 
     @Override
     public void onCharacterClick(CharacterDataModel characterDataModel) {
-        CharacterInfoFragment characterInfoFragment = new CharacterInfoFragment();
+        CharacterInfoFragment fragment = CharacterInfoFragment.getInstance(characterDataModel);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.activity_main_container, characterInfoFragment, CHARACTER_INFO_FRAGMENT_TAG)
+                .replace(R.id.activity_main_container, fragment, CHARACTER_INFO_FRAGMENT_TAG)
                 .addToBackStack(null)
                 .commit();
-
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(CHARACTER_TAG, characterDataModel);
-        characterInfoFragment.setArguments(bundle);
     }
 }
