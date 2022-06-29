@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 
 public class CharacterInfoFragment extends Fragment {
-    public static final String CHARACTER_TAG = "characterTag";
-    CharacterDataModel characterDataModel;
+    private static final String CHARACTER_TAG = "characterTag";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,11 +27,13 @@ public class CharacterInfoFragment extends Fragment {
         TextView nickNameCharacterTextInfo = view.findViewById(R.id.nickNameCharacterTextInfo);
         TextView portrayedCharacterTextInfo = view.findViewById(R.id.portrayedCharacterTextInfo);
 
+        CharacterDataModel characterDataModel = new CharacterDataModel(Parcel.obtain());
+
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            characterDataModel = getArguments().getParcelable(CHARACTER_TAG);
+            characterDataModel = bundle.getParcelable(CHARACTER_TAG);
         } else {
-            throw new IllegalArgumentException();
+            openErrorDialog();
         }
 
         //берем данные которые передали и вставляем в разметку фрагмента
@@ -52,5 +53,10 @@ public class CharacterInfoFragment extends Fragment {
         bundle.putParcelable(CHARACTER_TAG, characterDataModel);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    public void openErrorDialog() {
+        ErrorDialog errorDialog = new ErrorDialog();
+        errorDialog.show(getParentFragmentManager(), "Error");
     }
 }

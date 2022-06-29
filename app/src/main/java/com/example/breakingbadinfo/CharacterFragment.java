@@ -14,8 +14,6 @@ import android.view.ViewGroup;
 
 public class CharacterFragment extends Fragment implements CharacterAdapter.OnCharacterClickListener {
 
-    public static final String CHARACTER_INFO_FRAGMENT_TAG = "characterInfoFragment";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,7 +35,7 @@ public class CharacterFragment extends Fragment implements CharacterAdapter.OnCh
     public void onCharacterClick(CharacterDataModel characterDataModel) {
         CharacterInfoFragment fragment = CharacterInfoFragment.getInstance(characterDataModel);
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.activity_main_container, fragment, CHARACTER_INFO_FRAGMENT_TAG)
+                .replace(R.id.activity_main_container, fragment)
                 .addToBackStack(null)
                 .commit();
     }
