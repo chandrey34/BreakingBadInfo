@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/breakingbad"
+    tools:context=".HomeFragment">
+
+    <Button
+        android:id="@+id/season_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Сезоны"
+        android:textAllCaps="false"
+        android:backgroundTint="#799F41"
+        app:layout_constraintBottom_toBottomOf="@+id/horizontal_centr"
+        app:layout_constraintStart_toEndOf="@id/vertical_left" />
+
+    <Button
+        android:id="@+id/character_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Персонажи"
+        android:textAllCaps="false"
+        android:backgroundTint="#799F41"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_centr"
+        app:layout_constraintEnd_toStartOf="@id/vertical_right" />
+
+    <Button
+        android:id="@+id/quotes_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Цитаты"
+        android:textAllCaps="false"
+        android:backgroundTint="#799F41"
+        app:layout_constraintStart_toEndOf="@id/vertical_left"
+        app:layout_constraintTop_toTopOf="@id/horizontal_centr" />
+
+    <Button
+        android:id="@+id/death_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Смерти"
+        android:textAllCaps="false"
+        android:backgroundTint="#799F41"
+        app:layout_constraintEnd_toStartOf="@id/vertical_right"
+        app:layout_constraintTop_toTopOf="@id/horizontal_centr" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_centr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="206dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_centr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="329dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
