@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Series {
 
-    @SerializedName("episode_id")
+    @SerializedName("episode")
     private String numberSeries;
-    @SerializedName(" title")
+    @SerializedName("title")
     private String nameSeries;
 
     public Series(String numberSeries, String nameSeries) {

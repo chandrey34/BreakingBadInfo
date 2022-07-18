@@ -14,7 +14,7 @@ public class RetrofitClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        retrofit.create(BreakingBadApi.class);
+        breakingBadApi = retrofit.create(BreakingBadApi.class);
     }
 
     public static RetrofitClient getRetrofitClient() {

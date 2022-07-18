@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class SeasonDataModel {
+
     private ArrayList<Series> seriesList;
 
     @SerializedName("season")
@@ -16,7 +17,6 @@ public class SeasonDataModel {
         this.seriesList = seriesList;
         this.numberSeason = numberSeason;
         isExpandable = false;
-
     }
 
     public ArrayList<Series> getSeriesList() {
@@ -33,5 +33,9 @@ public class SeasonDataModel {
 
     public void setExpandable(boolean expandable) {
         isExpandable = expandable;
+    }
+
+    public void setNumberSeason(String numberSeason) {
+        this.numberSeason = numberSeason;
     }
 }

@@ -11,12 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Scanner;
-
-
 public class CharacterInfoFragment extends Fragment {
     private static final String CHARACTER_TAG = "characterTag";
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
