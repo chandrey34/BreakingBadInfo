@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
-    private ArrayList<String> seriesList;
+    private ArrayList<Series> seriesList;
 
-    public SeriesAdapter(ArrayList<String> seriesList) {
+    public SeriesAdapter(ArrayList<Series> seriesList) {
         this.seriesList = seriesList;
     }
 
@@ -25,7 +25,8 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull SeriesViewHolder holder, int position) {
-        holder.bind(seriesList.get(position));
+        Series series = seriesList.get(position);
+        holder.bind(series);
     }
 
     @Override
