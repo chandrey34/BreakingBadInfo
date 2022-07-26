@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 
 import java.util.List;
 
@@ -31,22 +34,21 @@ public class SeasonFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         //упорядочиваем элементы в виде списка с одной колонкой
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        //создаем объект адаптера
-        //SeasonAdapter adapter = new SeasonAdapter(SeasonDataList.getSeasonDataModel());
-        //устанавливаем адаптер
-        //recyclerView.setAdapter(adapter);
-        Season();
+
+        fetchData();
 
         return view;
     }
 
-    public void Season() {
+    public void fetchData() {
         RetrofitClient.getRetrofitClient().getBreakingBadApi().getEpisodesApiResponse(getId()).enqueue(new Callback<List<EpisodesApiResponse>>() {
             @Override
             public void onResponse(Call<List<EpisodesApiResponse>> call, Response<List<EpisodesApiResponse>> response) {
                 if (response.isSuccessful()) {
                     episodesApiResponses = response.body();
-                    recyclerView.setAdapter(new SeasonAdapter(SeasonDataList.getSeasonDataModel()));
+                    SeasonAdapter adapter = new SeasonAdapter(SeasonDataList.getSeasonDataModel());
+                    recyclerView.setAdapter(adapter);
+                    Log.d("API111", episodesApiResponses.toString());
                 }
             }
 

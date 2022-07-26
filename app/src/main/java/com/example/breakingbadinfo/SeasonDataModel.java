@@ -13,6 +13,9 @@ public class SeasonDataModel {
 
     private boolean isExpandable;
 
+    public SeasonDataModel() {
+    }
+
     public SeasonDataModel(ArrayList<Series> seriesList, String numberSeason) {
         this.seriesList = seriesList;
         this.numberSeason = numberSeason;
@@ -23,7 +26,7 @@ public class SeasonDataModel {
         return seriesList;
     }
 
-    public String getItemText() {
+    public String getNumberSeason() {
         return numberSeason;
     }
 

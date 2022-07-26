@@ -24,7 +24,7 @@ public class SeasonViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(SeasonDataModel seasonDataModel) {
-        textViewNumberSeason.setText(seasonDataModel.getItemText());
+        textViewNumberSeason.setText(seasonDataModel.getNumberSeason());
         boolean isExpandable = seasonDataModel.isExpandable();
         expandableLayout.setVisibility(seasonDataModel.isExpandable() ? View.VISIBLE : View.GONE);
         if (isExpandable) {

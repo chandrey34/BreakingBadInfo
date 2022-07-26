@@ -9,4 +9,5 @@ public class SeasonDataList {
     public static ArrayList<SeasonDataModel> getSeasonDataModel() {
         return seasonDataModel;
     }
+
 }

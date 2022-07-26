@@ -15,6 +15,16 @@ public class Series {
         this.nameSeries = nameSeries;
     }
 
+    public Series() {
+    }
+
+    public void setNumberSeries(String numberSeries) {
+        this.numberSeries = numberSeries;
+    }
+
+    public void setNameSeries(String nameSeries) {
+        this.nameSeries = nameSeries;
+    }
 
     public String getNumberSeries() {
         return numberSeries;
