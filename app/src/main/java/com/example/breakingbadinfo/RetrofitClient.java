@@ -8,6 +8,7 @@ public class RetrofitClient {
     private static RetrofitClient retrofitClient;
     private BreakingBadApi breakingBadApi;
 
+
     private RetrofitClient() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)

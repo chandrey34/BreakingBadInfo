@@ -34,27 +34,26 @@ public class SeasonFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         //упорядочиваем элементы в виде списка с одной колонкой
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
         fetchData();
 
         return view;
     }
 
     public void fetchData() {
-        RetrofitClient.getRetrofitClient().getBreakingBadApi().getEpisodesApiResponse(getId()).enqueue(new Callback<List<EpisodesApiResponse>>() {
+        RetrofitClient.getRetrofitClient().getBreakingBadApi().getEpisodesApiResponse().enqueue(new Callback<List<EpisodesApiResponse>>() {
             @Override
             public void onResponse(Call<List<EpisodesApiResponse>> call, Response<List<EpisodesApiResponse>> response) {
                 if (response.isSuccessful()) {
                     episodesApiResponses = response.body();
-                    SeasonAdapter adapter = new SeasonAdapter(SeasonDataList.getSeasonDataModel());
+                    SeasonAdapter adapter = new SeasonAdapter(SeasonDataMapper.transform(episodesApiResponses));
                     recyclerView.setAdapter(adapter);
-                    Log.d("API111", episodesApiResponses.toString());
                 }
             }
 
             @Override
             public void onFailure(Call<List<EpisodesApiResponse>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Ошибка!", Toast.LENGTH_SHORT).show();
+                Log.d("API222", t.toString());
             }
         });
     }

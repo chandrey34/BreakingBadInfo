@@ -9,6 +9,6 @@ import retrofit2.http.Path;
 
 public interface BreakingBadApi {
 
-    @GET("episodes/{id}")
-    Call<List<EpisodesApiResponse>> getEpisodesApiResponse(@Path("id") int episodesId);
+    @GET("episodes")
+    Call<List<EpisodesApiResponse>> getEpisodesApiResponse();
 }

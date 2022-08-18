@@ -3,6 +3,7 @@ package com.example.breakingbadinfo;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SeasonDataModel {
 
@@ -22,6 +23,10 @@ public class SeasonDataModel {
         isExpandable = false;
     }
 
+    public SeasonDataModel(String numberSeason) {
+        this.numberSeason = numberSeason;
+    }
+
     public ArrayList<Series> getSeriesList() {
         return seriesList;
     }
@@ -34,6 +39,10 @@ public class SeasonDataModel {
         return isExpandable;
     }
 
+    public void setSeriesList(ArrayList<Series> seriesList) {
+        this.seriesList = seriesList;
+    }
+
     public void setExpandable(boolean expandable) {
         isExpandable = expandable;
     }
@@ -41,4 +50,10 @@ public class SeasonDataModel {
     public void setNumberSeason(String numberSeason) {
         this.numberSeason = numberSeason;
     }
+
+//    @Override
+//    public String toString() {
+//        return ", Season: " + numberSeason + " " + '\\';
+//    }
+
 }
