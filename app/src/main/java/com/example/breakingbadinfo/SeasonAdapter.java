@@ -19,8 +19,6 @@ public class SeasonAdapter extends RecyclerView.Adapter<SeasonViewHolder> {
         this.myList = new ArrayList<>(myList);
     }
 
-
-
     public void setList(ArrayList<SeasonDataModel> myList) {
         this.myList = myList;
         myList.clear();

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +44,7 @@ public class SeasonFragment extends Fragment {
             public void onResponse(Call<List<EpisodesApiResponse>> call, Response<List<EpisodesApiResponse>> response) {
                 if (response.isSuccessful()) {
                     episodesApiResponses = response.body();
-                    SeasonAdapter adapter = new SeasonAdapter(SeasonDataMapper.transform(episodesApiResponses));
+                    SeasonAdapter adapter = new SeasonAdapter(SeasonDataMapper.transformSmart(episodesApiResponses));
                     recyclerView.setAdapter(adapter);
                 }
             }
@@ -53,7 +52,6 @@ public class SeasonFragment extends Fragment {
             @Override
             public void onFailure(Call<List<EpisodesApiResponse>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Ошибка!", Toast.LENGTH_SHORT).show();
-                Log.d("API222", t.toString());
             }
         });
     }

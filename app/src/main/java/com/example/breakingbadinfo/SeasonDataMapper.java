@@ -1,35 +1,53 @@
 package com.example.breakingbadinfo;
 
-import android.util.Log;
-
-
 import java.util.ArrayList;
-
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SeasonDataMapper {
 
-    public static SeasonDataModel transform(EpisodesApiResponse episodesApiResponse) {
-        SeasonDataModel seasonDataModel = null;
-        Series series = new Series();
-        if (episodesApiResponse != null) {
-            seasonDataModel = new SeasonDataModel();
-            seasonDataModel.setNumberSeason(episodesApiResponse.getSeason());
-        }
-        return seasonDataModel;
-    }
+//   SeasonDataMapper public static List<SeasonDataModel> transform(List<EpisodesApiResponse> episodesApiResponseList) {
+//        List<SeasonDataModel> seasonDataModelList = new ArrayList<>();
+//        Set<String> seasonSet = new HashSet<>();
+//        for (EpisodesApiResponse episodesApiResponse : episodesApiResponseList) {
+//            boolean isContains = seasonSet.contains(episodesApiResponse.getSeason().trim());
+//            if (!isContains) {
+//                seasonSet.add(episodesApiResponse.getSeason());
+//                seasonDataModelList.add(new SeasonDataModel(new ArrayList<>(), episodesApiResponse.getSeason().trim()));
+//            }
+//        }
+//        for (SeasonDataModel seasonDataModel : seasonDataModelList) {
+//            for (EpisodesApiResponse episodesApiResponse : episodesApiResponseList) {
+//                if (seasonDataModel.getNumberSeason().equals(episodesApiResponse.getSeason().trim())) {
+//                    seasonDataModel.getSeriesList().add(new Series(episodesApiResponse));
+//                }
+//            }
+//        }
+//        return seasonDataModelList;
+//    }
 
-    public static List<SeasonDataModel> transform(List<EpisodesApiResponse> episodesApiResponseList) {
+    public static List<SeasonDataModel> transformSmart(List<EpisodesApiResponse> episodesApiResponseList) {
         List<SeasonDataModel> seasonDataModelList = new ArrayList<>();
-        List<Series> seriesList = new ArrayList<>();
+        Map<String, SeasonDataModel> map = new HashMap<>();
         for (EpisodesApiResponse episodesApiResponse : episodesApiResponseList) {
-            if (episodesApiResponse.getEpisode().equals("1")) {
-                seasonDataModelList.add(transform(episodesApiResponse));
+            String numberSeason = episodesApiResponse.getSeason().trim();
+            boolean isContains = map.containsKey(numberSeason);
+            if (!isContains) {
+                map.put(numberSeason, new SeasonDataModel(new ArrayList<>(), numberSeason));
             }
         }
-
-        Log.d("ARRAY111", String.valueOf(seasonDataModelList.size()));
+        for (String key : map.keySet()) {
+            SeasonDataModel seasonDataModel = map.get(key);
+            if (seasonDataModel != null) {
+                for (EpisodesApiResponse episodesApiResponse : episodesApiResponseList) {
+                    if (seasonDataModel.getNumberSeason().equals(episodesApiResponse.getSeason().trim())) {
+                        seasonDataModel.getSeriesList().add(new Series(episodesApiResponse));
+                    }
+                }
+            }
+        }
+        seasonDataModelList.addAll(map.values());
         return seasonDataModelList;
     }
 }

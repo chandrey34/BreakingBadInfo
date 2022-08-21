@@ -10,6 +10,7 @@ public class Series {
     @SerializedName("title")
     private String nameSeries;
 
+
     public Series(String numberSeries, String nameSeries) {
         this.numberSeries = numberSeries;
         this.nameSeries = nameSeries;
@@ -17,6 +18,13 @@ public class Series {
 
     public Series() {
     }
+
+    public Series(EpisodesApiResponse episodesApiResponse) {
+        this.nameSeries = episodesApiResponse.getTitle();
+        this.numberSeries = episodesApiResponse.getEpisode();
+
+    }
+
 
     public void setNumberSeries(String numberSeries) {
         this.numberSeries = numberSeries;
