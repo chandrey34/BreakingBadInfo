@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment {
         Button season_btn = (Button) view.findViewById(R.id.season_btn);
         Button character_btn = (Button) view.findViewById(R.id.character_btn);
 
-        //обработчик события по нажатию на кнопку Серии
+        //обработчик события по нажатию на кнопку Сезоны
         season_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

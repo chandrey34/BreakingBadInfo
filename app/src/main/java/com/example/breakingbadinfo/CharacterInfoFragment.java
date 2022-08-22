@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 public class CharacterInfoFragment extends Fragment {
     private static final String CHARACTER_TAG = "characterTag";
 

@@ -1,24 +1,37 @@
 package com.example.breakingbadinfo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SeasonDataModel {
-    private ArrayList<String> seriesList;
+
+    private ArrayList<Series> seriesList;
+
+    @SerializedName("season")
     private String numberSeason;
+
     private boolean isExpandable;
 
+    public SeasonDataModel() {
+    }
 
-    public SeasonDataModel(ArrayList<String> seriesList, String numberSeason) {
+    public SeasonDataModel(ArrayList<Series> seriesList, String numberSeason) {
         this.seriesList = seriesList;
         this.numberSeason = numberSeason;
         isExpandable = false;
     }
 
-    public ArrayList<String> getSeriesList() {
+    public SeasonDataModel(String numberSeason) {
+        this.numberSeason = numberSeason;
+    }
+
+    public ArrayList<Series> getSeriesList() {
         return seriesList;
     }
 
-    public String getItemText() {
+    public String getNumberSeason() {
         return numberSeason;
     }
 
@@ -26,7 +39,21 @@ public class SeasonDataModel {
         return isExpandable;
     }
 
+    public void setSeriesList(ArrayList<Series> seriesList) {
+        this.seriesList = seriesList;
+    }
+
     public void setExpandable(boolean expandable) {
         isExpandable = expandable;
     }
+
+    public void setNumberSeason(String numberSeason) {
+        this.numberSeason = numberSeason;
+    }
+
+//    @Override
+//    public String toString() {
+//        return ", Season: " + numberSeason + " " + '\\';
+//    }
+
 }

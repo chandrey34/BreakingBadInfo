@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SeasonAdapter extends RecyclerView.Adapter<SeasonViewHolder> {
     private ArrayList<SeasonDataModel> myList;
 
-    public SeasonAdapter(ArrayList<SeasonDataModel> myList) {
+    public SeasonAdapter(List<SeasonDataModel> myList) {
         this.myList = new ArrayList<>(myList);
     }
 
