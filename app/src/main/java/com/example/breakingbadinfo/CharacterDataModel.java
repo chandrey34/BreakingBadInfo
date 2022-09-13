@@ -1,27 +1,46 @@
 package com.example.breakingbadinfo;
 
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 public class CharacterDataModel implements Parcelable {
-    private int characterImage;
+
+    private String characterImage;
+
     private String characterText;
+
     private String birthdayCharacterTextInfo;
-    private String seasonsCharacterTextInfo;
+
+    private List<Integer> seasonsCharacterTextInfo = null;
+
     private String nickNameCharacterTextInfo;
+
     private String portrayedCharacterTextInfo;
 
     public CharacterDataModel(Parcel parcel) {
-        characterImage = parcel.readInt();
+        characterImage = parcel.readString();
         characterText = parcel.readString();
         birthdayCharacterTextInfo = parcel.readString();
-        seasonsCharacterTextInfo = parcel.readString();
+        parcel.readList(seasonsCharacterTextInfo, ClassLoader.getSystemClassLoader());
         nickNameCharacterTextInfo = parcel.readString();
         portrayedCharacterTextInfo = parcel.readString();
     }
 
-    public int getCharacterImage() {
+    public CharacterDataModel(CharactersApiResponse charactersApiResponse) {
+        this.characterImage = charactersApiResponse.getImg();
+        this.characterText = charactersApiResponse.getName();
+        this.birthdayCharacterTextInfo = charactersApiResponse.getBirthday();
+        this.seasonsCharacterTextInfo = charactersApiResponse.getAppearance();
+        this.nickNameCharacterTextInfo = charactersApiResponse.getNickname();
+        this.portrayedCharacterTextInfo = charactersApiResponse.getPortrayed();
+    }
+
+    public CharacterDataModel() {
+    }
+
+    public String getCharacterImage() {
         return characterImage;
     }
 
@@ -33,7 +52,7 @@ public class CharacterDataModel implements Parcelable {
         return birthdayCharacterTextInfo;
     }
 
-    public String getSeasonsCharacterTextInfo() {
+    public List<Integer> getSeasonsCharacterTextInfo() {
         return seasonsCharacterTextInfo;
     }
 
@@ -56,15 +75,6 @@ public class CharacterDataModel implements Parcelable {
         }
     };
 
-    public CharacterDataModel(int characterImage, String characterText, String birthdayCharacterTextInfo, String seasonsCharacterTextInfo, String nickNameCharacterTextInfo, String portrayedCharacterTextInfo) {
-        this.characterImage = characterImage;
-        this.characterText = characterText;
-        this.birthdayCharacterTextInfo = birthdayCharacterTextInfo;
-        this.seasonsCharacterTextInfo = seasonsCharacterTextInfo;
-        this.nickNameCharacterTextInfo = nickNameCharacterTextInfo;
-        this.portrayedCharacterTextInfo = portrayedCharacterTextInfo;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -72,10 +82,10 @@ public class CharacterDataModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(characterImage);
+        parcel.writeString(characterImage);
         parcel.writeString(characterText);
         parcel.writeString(birthdayCharacterTextInfo);
-        parcel.writeString(seasonsCharacterTextInfo);
+        parcel.writeString(String.valueOf(seasonsCharacterTextInfo));
         parcel.writeString(nickNameCharacterTextInfo);
         parcel.writeString(portrayedCharacterTextInfo);
     }

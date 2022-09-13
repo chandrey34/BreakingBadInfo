@@ -25,7 +25,6 @@ public class Series {
 
     }
 
-
     public void setNumberSeries(String numberSeries) {
         this.numberSeries = numberSeries;
     }

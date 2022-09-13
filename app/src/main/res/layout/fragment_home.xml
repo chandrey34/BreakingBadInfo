@@ -11,9 +11,14 @@
         android:id="@+id/season_btn"
         android:layout_width="150dp"
         android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/roboto_bold"
         android:text="Сезоны"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textAllCaps="false"
-        android:backgroundTint="#799F41"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="@+id/horizontal_centr"
         app:layout_constraintStart_toEndOf="@id/vertical_left" />
 
@@ -21,9 +26,14 @@
         android:id="@+id/character_btn"
         android:layout_width="150dp"
         android:layout_height="56dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/roboto_bold"
         android:text="Персонажи"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textAllCaps="false"
-        android:backgroundTint="#799F41"
+        app:backgroundTint="@null"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="@id/horizontal_centr"
         app:layout_constraintEnd_toStartOf="@id/vertical_right" />
 
@@ -31,9 +41,13 @@
         android:id="@+id/quotes_btn"
         android:layout_width="150dp"
         android:layout_height="56dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/roboto_bold"
         android:text="Цитаты"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textAllCaps="false"
-        android:backgroundTint="#799F41"
+        app:backgroundTint="@null"
         app:layout_constraintStart_toEndOf="@id/vertical_left"
         app:layout_constraintTop_toTopOf="@id/horizontal_centr" />
 
@@ -41,9 +55,13 @@
         android:id="@+id/death_btn"
         android:layout_width="150dp"
         android:layout_height="56dp"
+        android:background="@drawable/gradient"
+        android:fontFamily="@font/roboto_bold"
         android:text="Смерти"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:textAllCaps="false"
-        android:backgroundTint="#799F41"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toStartOf="@id/vertical_right"
         app:layout_constraintTop_toTopOf="@id/horizontal_centr" />
 

@@ -44,7 +44,7 @@ public class SeasonFragment extends Fragment {
             public void onResponse(Call<List<EpisodesApiResponse>> call, Response<List<EpisodesApiResponse>> response) {
                 if (response.isSuccessful()) {
                     episodesApiResponses = response.body();
-                    SeasonAdapter adapter = new SeasonAdapter(SeasonDataMapper.transformSmart(episodesApiResponses));
+                    SeasonAdapter adapter = new SeasonAdapter(SeasonMapper.transformSmart(episodesApiResponses));
                     recyclerView.setAdapter(adapter);
                 }
             }

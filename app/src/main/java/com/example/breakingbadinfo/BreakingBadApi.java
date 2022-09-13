@@ -10,4 +10,7 @@ public interface BreakingBadApi {
 
     @GET("episodes?series=Breaking+Bad")
     Call<List<EpisodesApiResponse>> getEpisodesApiResponse();
+
+    @GET("characters?category=Breaking+Bad")
+    Call<List<CharactersApiResponse>> getCharactersApiResponse();
 }

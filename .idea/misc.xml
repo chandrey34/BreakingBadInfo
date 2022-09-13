@@ -3,9 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/arrow_down.xml" value="0.1815" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/arrow_up.xml" value="0.196" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/color_button_sez.xml" value="0.1905" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/gradient.xml" value="0.1815" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/gradient1.xml" value="0.1815" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/gradient_btn.xml" value="0.1815" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/radius.xml" value="0.1395" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/drawable/test.xml" value="0.1395" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/montserrat_alternates_bold.xml" value="0.284375" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/roboto_black.xml" value="0.25833333333333336" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/roboto_bold.xml" value="0.25833333333333336" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/roboto_bold_character_name.xml" value="0.25833333333333336" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/roboto_bold_series_name.xml" value="0.25833333333333336" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/font/roboto_flex.xml" value="0.284375" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout-v28/list_seasons.xml" value="0.12360688956433637" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_character.xml" value="0.11302083333333333" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_character_info.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/activity_death.xml" value="0.11302083333333333" />
@@ -16,7 +29,7 @@
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_character.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_character_info.xml" value="0.24010416666666667" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_death.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_main.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_quotes.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/fragment_season.xml" value="0.24010416666666667" />
@@ -25,7 +38,7 @@
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_season.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_seasons.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_seasons1.xml" value="0.25416666666666665" />
-        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_series.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_series.xml" value="0.24427480916030533" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/list_series_sz1.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/BreakingBadInfo/app/src/main/res/layout/number_season.xml" value="0.25416666666666665" />
       </map>

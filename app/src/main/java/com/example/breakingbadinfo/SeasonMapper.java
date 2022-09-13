@@ -5,27 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SeasonDataMapper {
-
-//   SeasonDataMapper public static List<SeasonDataModel> transform(List<EpisodesApiResponse> episodesApiResponseList) {
-//        List<SeasonDataModel> seasonDataModelList = new ArrayList<>();
-//        Set<String> seasonSet = new HashSet<>();
-//        for (EpisodesApiResponse episodesApiResponse : episodesApiResponseList) {
-//            boolean isContains = seasonSet.contains(episodesApiResponse.getSeason().trim());
-//            if (!isContains) {
-//                seasonSet.add(episodesApiResponse.getSeason());
-//                seasonDataModelList.add(new SeasonDataModel(new ArrayList<>(), episodesApiResponse.getSeason().trim()));
-//            }
-//        }
-//        for (SeasonDataModel seasonDataModel : seasonDataModelList) {
-//            for (EpisodesApiResponse episodesApiResponse : episodesApiResponseList) {
-//                if (seasonDataModel.getNumberSeason().equals(episodesApiResponse.getSeason().trim())) {
-//                    seasonDataModel.getSeriesList().add(new Series(episodesApiResponse));
-//                }
-//            }
-//        }
-//        return seasonDataModelList;
-//    }
+public class SeasonMapper {
 
     public static List<SeasonDataModel> transformSmart(List<EpisodesApiResponse> episodesApiResponseList) {
         List<SeasonDataModel> seasonDataModelList = new ArrayList<>();

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class CharacterInfoFragment extends Fragment {
     private static final String CHARACTER_TAG = "characterTag";
 
@@ -36,10 +38,13 @@ public class CharacterInfoFragment extends Fragment {
         }
 
         //берем данные которые передали и вставляем в разметку фрагмента
-        characterImageInfo.setImageResource(characterDataModel.getCharacterImage());
+        Glide.with(characterImageInfo.getContext())
+                .load(characterDataModel.getCharacterImage())
+                .into(characterImageInfo);
+
         nameCharacterTextInfo.setText(characterDataModel.getCharacterText());
         birthdayCharacterTextInfo.setText(characterDataModel.getBirthdayCharacterTextInfo());
-        seasonsCharacterTextInfo.setText(characterDataModel.getSeasonsCharacterTextInfo());
+        seasonsCharacterTextInfo.setText(characterDataModel.getSeasonsCharacterTextInfo().toString().replaceAll("\\[|\\]", ""));
         nickNameCharacterTextInfo.setText(characterDataModel.getNickNameCharacterTextInfo());
         portrayedCharacterTextInfo.setText(characterDataModel.getPortrayedCharacterTextInfo());
 
