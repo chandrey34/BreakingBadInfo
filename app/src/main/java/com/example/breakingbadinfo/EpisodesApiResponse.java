@@ -25,5 +25,4 @@ public class EpisodesApiResponse {
     public String getEpisode() {
         return episode;
     }
-
 }

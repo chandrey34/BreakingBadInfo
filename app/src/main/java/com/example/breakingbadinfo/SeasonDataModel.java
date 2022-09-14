@@ -3,6 +3,7 @@ package com.example.breakingbadinfo;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SeasonDataModel {
 
@@ -49,5 +50,4 @@ public class SeasonDataModel {
     public void setNumberSeason(String numberSeason) {
         this.numberSeason = numberSeason;
     }
-
 }
