@@ -2,17 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/constraint">
+    android:background="#1B1B1B">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/characterCardView"
-        android:layout_width="80dp"
+        android:layout_width="65dp"
         android:layout_height="80dp"
         android:layout_margin="16dp"
-        app:cardCornerRadius="40dp"
+        app:cardCornerRadius="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,8 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            tools:srcCompat="@drawable/character" />
+            android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -30,11 +30,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:fontFamily="@font/roboto_bold"
+        android:textStyle="bold"
+        android:textSize="14sp"
         android:text="Андрей Чеченов"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@id/characterCardView"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toRightOf="@id/characterCardView"
         app:layout_constraintTop_toTopOf="@id/characterCardView" />
+
+    <TextView
+        android:id="@+id/textViewNameCharacter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/roboto_bold_weight_400"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="Андрей Чеченов"
+        android:textAlignment="center"
+        android:textColor="@color/grey"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCharacter"
+        app:layout_constraintLeft_toRightOf="@+id/characterCardView"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,10 +50,4 @@ public class SeasonDataModel {
     public void setNumberSeason(String numberSeason) {
         this.numberSeason = numberSeason;
     }
-
-//    @Override
-//    public String toString() {
-//        return ", Season: " + numberSeason + " " + '\\';
-//    }
-
 }

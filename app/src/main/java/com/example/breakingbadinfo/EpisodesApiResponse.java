@@ -2,8 +2,6 @@ package com.example.breakingbadinfo;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Objects;
-
 
 public class EpisodesApiResponse {
 
@@ -26,12 +24,5 @@ public class EpisodesApiResponse {
 
     public String getEpisode() {
         return episode;
-    }
-
-    @Override
-    public String toString() {
-        return "Title: " + title +
-                ", Season: " + season +
-                ", Episode: " + episode + " " + '\\';
     }
 }
