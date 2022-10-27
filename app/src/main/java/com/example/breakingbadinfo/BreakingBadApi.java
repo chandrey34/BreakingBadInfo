@@ -1,6 +1,5 @@
 package com.example.breakingbadinfo;
 
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -13,4 +12,7 @@ public interface BreakingBadApi {
 
     @GET("characters?category=Breaking+Bad")
     Call<List<CharactersApiResponse>> getCharactersApiResponse();
+
+    @GET("quotes?series=Breaking+Bad")
+    Call<List<QuoteApiResponse>> getQuoteApiResponse();
 }

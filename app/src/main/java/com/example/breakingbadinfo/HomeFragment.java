@@ -20,6 +20,7 @@ public class HomeFragment extends Fragment {
 
         Button season_btn = (Button) view.findViewById(R.id.season_btn);
         Button character_btn = (Button) view.findViewById(R.id.character_btn);
+        Button quotes_btn = (Button) view.findViewById(R.id.quotes_btn);
 
         //обработчик события по нажатию на кнопку Сезоны
         season_btn.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +38,15 @@ public class HomeFragment extends Fragment {
                 openFragment(characterFragment);
             }
         });
+        //обработчик события по нажатию на кнопку Цитаты
+        quotes_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QuoteFragment quoteFragment = new QuoteFragment();
+                openFragment(quoteFragment);
+            }
+        });
+
 
         return view;
     }
