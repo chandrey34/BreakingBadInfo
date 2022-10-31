@@ -32,20 +32,21 @@ public abstract class QuoteDatabase extends RoomDatabase {
 
     public static Callback callback = new Callback() {
         @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db) {
-            super.onOpen(db);
-            new PopulateDbAsyn(INSTANCE);
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new PopulateDbAsync(INSTANCE);
         }
     };
 
-    static class PopulateDbAsyn extends AsyncTask<Void, Void, Void> {
-        final QuoteDao quoteDao;
-        public PopulateDbAsyn(QuoteDatabase quoteDatabase) {
+    static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
+        private QuoteDao quoteDao;
+
+        public PopulateDbAsync(QuoteDatabase quoteDatabase) {
             quoteDao = quoteDatabase.quoteDao();
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            quoteDao.deleteAll();
+            quoteDao.delete();
             return null;
         }
     }

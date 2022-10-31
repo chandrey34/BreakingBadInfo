@@ -3,7 +3,7 @@ package com.example.breakingbadinfo;
 
 import com.google.gson.annotations.SerializedName;
 
-//как я понял, это можно добавить через @SerializedName в QuoteDataModel дабы размножать лишние классы
+
 public class QuoteApiResponse {
 
     @SerializedName("quote_id")
