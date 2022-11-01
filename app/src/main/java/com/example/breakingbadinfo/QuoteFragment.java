@@ -33,7 +33,7 @@ public class QuoteFragment extends Fragment {
 
         fetchData();
         observeDb();
-        //up
+        //upp
 
         return view;
     }
