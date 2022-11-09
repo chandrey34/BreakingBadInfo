@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 
 import androidx.lifecycle.LiveData;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuoteRepository {
@@ -18,7 +19,12 @@ public class QuoteRepository {
     }
 
     public void insert(List<QuoteApiResponse> quotes) {
-        new InsertAsyncTask (quoteDatabase).execute(quotes);
+       List<QuoteDataModel> quoteDataModels = new ArrayList<>();
+        for (QuoteApiResponse quoteApiResponse : quotes) {
+            quoteDataModels.add(new QuoteDataModel(quoteApiResponse));
+        }
+
+        new InsertAsyncTask(quoteDatabase).execute(quoteDataModels);
     }
 
     public LiveData<List<QuoteDataModel>> getAllQuotes() {
@@ -35,9 +41,6 @@ public class QuoteRepository {
         protected Void doInBackground(List<QuoteDataModel>... lists) {
             quoteDao.insert(lists[0]);
             return null;
-        }
-
-        public void execute(List<QuoteApiResponse> quotes) {
         }
     }
 }

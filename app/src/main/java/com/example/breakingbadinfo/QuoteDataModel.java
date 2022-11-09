@@ -27,6 +27,12 @@ public class QuoteDataModel {
         this.author = author;
     }
 
+    public QuoteDataModel(QuoteApiResponse quoteApiResponse) {
+        this.quoteId = quoteApiResponse.getQuoteId();
+        this.quote = quoteApiResponse.getQuote();
+        this.author = quoteApiResponse.getAuthor();
+    }
+
     public int getQuoteId() {
         return quoteId;
     }
@@ -35,7 +41,6 @@ public class QuoteDataModel {
         this.quoteId = quoteId;
     }
 
-    @NonNull
     public String getQuote() {
         return quote;
     }
@@ -44,7 +49,6 @@ public class QuoteDataModel {
         this.quote = quote;
     }
 
-    @NonNull
     public String getAuthor() {
         return author;
     }

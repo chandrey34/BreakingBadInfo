@@ -33,7 +33,6 @@ public class QuoteFragment extends Fragment {
 
         fetchData();
         observeDb();
-        //upp
 
         return view;
     }
@@ -44,7 +43,7 @@ public class QuoteFragment extends Fragment {
             public void onResponse(Call<List<QuoteApiResponse>> call, Response<List<QuoteApiResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     quoteRepository.insert(response.body());
-                    Log.d("main1", "onResponse: " +response.body().toString());
+                    Log.d("main1", "onResponse: " + response.body().toString());
                 }
             }
 
@@ -56,11 +55,12 @@ public class QuoteFragment extends Fragment {
     }
 
     public void observeDb() {
-        quoteViewModel.getAllQuote()
+        quoteViewModel
+                .getAllQuote()
                 .observe(getViewLifecycleOwner(), new Observer<List<QuoteDataModel>>() {
                     @Override
                     public void onChanged(List<QuoteDataModel> quoteDataModels) {
-
+                        Log.d("db123", "onChanged : " + quoteDataModels);
                     }
                 });
     }
