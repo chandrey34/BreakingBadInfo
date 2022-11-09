@@ -5,27 +5,39 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "quote")
 public class QuoteDataModel {
 
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "quote_id")
-    Integer quoteId;
+    private int quoteId;
 
     @NonNull
     @ColumnInfo(name = "quote")
-    String quote;
+    private String quote;
 
     @NonNull
     @ColumnInfo(name = "author")
-    String author;
+    private String author;
 
-    public Integer getQuoteId() {
+    public QuoteDataModel(int quoteId, @NonNull String quote, @NonNull String author) {
+        this.quoteId = quoteId;
+        this.quote = quote;
+        this.author = author;
+    }
+
+    public QuoteDataModel(QuoteApiResponse quoteApiResponse) {
+        this.quoteId = quoteApiResponse.getQuoteId();
+        this.quote = quoteApiResponse.getQuote();
+        this.author = quoteApiResponse.getAuthor();
+    }
+
+    public int getQuoteId() {
         return quoteId;
     }
 
-    public void setQuoteId(Integer quoteId) {
+    public void setQuoteId(int quoteId) {
         this.quoteId = quoteId;
     }
 
@@ -33,7 +45,7 @@ public class QuoteDataModel {
         return quote;
     }
 
-    public void setQuote(String quote) {
+    public void setQuote(@NonNull String quote) {
         this.quote = quote;
     }
 
@@ -41,7 +53,7 @@ public class QuoteDataModel {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(@NonNull String author) {
         this.author = author;
     }
 }

@@ -1,39 +1,45 @@
 package com.example.breakingbadinfo;
 
-import android.app.Application;
+import android.content.Context;
 import android.os.AsyncTask;
 
 
+import androidx.lifecycle.LiveData;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuoteRepository {
 
-    public QuoteDao quoteDao;
-    public List<QuoteDataModel> getAllQuotes;
+    private LiveData<List<QuoteDataModel>> getAllQuotes;
     private QuoteDatabase quoteDatabase;
 
-    public QuoteRepository(Application application) {
-        quoteDatabase = QuoteDatabase.getInstance(application);
-        quoteDao = quoteDatabase.quoteDao();
-        getAllQuotes=quoteDao.getAll();
+    public QuoteRepository(Context context) {
+        quoteDatabase = QuoteDatabase.getInstance(context);
+        getAllQuotes = quoteDatabase.quoteDao().getAllQuotes();
     }
 
-    public void insert(List<QuoteDataModel> quotes) {
-        new InsertAsyncTask (quoteDao).execute(quotes);
+    public void insert(List<QuoteApiResponse> quotes) {
+       List<QuoteDataModel> quoteDataModels = new ArrayList<>();
+        for (QuoteApiResponse quoteApiResponse : quotes) {
+            quoteDataModels.add(new QuoteDataModel(quoteApiResponse));
+        }
+
+        new InsertAsyncTask(quoteDatabase).execute(quoteDataModels);
     }
 
-    public List<QuoteDataModel> getAllQuotes() {
+    public LiveData<List<QuoteDataModel>> getAllQuotes() {
         return getAllQuotes;
     }
 
     private static class InsertAsyncTask extends AsyncTask<List<QuoteDataModel>, Void, Void> {
         private QuoteDao quoteDao;
-        public InsertAsyncTask(QuoteDao quotDao) {
-            this.quoteDao = quotDao;
+
+        public InsertAsyncTask(QuoteDatabase quoteDatabase) {
+            quoteDao = quoteDatabase.quoteDao();
         }
         @Override
         protected Void doInBackground(List<QuoteDataModel>... lists) {
-            quoteDao.insertAll(lists[0]);
+            quoteDao.insert(lists[0]);
             return null;
         }
     }
