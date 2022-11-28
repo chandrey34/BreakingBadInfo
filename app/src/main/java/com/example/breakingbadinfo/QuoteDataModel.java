@@ -21,7 +21,7 @@ public class QuoteDataModel {
     @ColumnInfo(name = "author")
     private String author;
 
-    public QuoteDataModel(int quoteId, @NonNull String quote, @NonNull String author) {
+    public QuoteDataModel(int quoteId,@NonNull String quote,@NonNull String author) {
         this.quoteId = quoteId;
         this.quote = quote;
         this.author = author;
@@ -31,6 +31,9 @@ public class QuoteDataModel {
         this.quoteId = quoteApiResponse.getQuoteId();
         this.quote = quoteApiResponse.getQuote();
         this.author = quoteApiResponse.getAuthor();
+    }
+
+    public QuoteDataModel() {
     }
 
     public int getQuoteId() {
@@ -55,5 +58,11 @@ public class QuoteDataModel {
 
     public void setAuthor(@NonNull String author) {
         this.author = author;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "id: " + getQuoteId() + "/ " + "quote: " + getQuote() + "/ " + "autor: " + "/ " + getAuthor();
     }
 }

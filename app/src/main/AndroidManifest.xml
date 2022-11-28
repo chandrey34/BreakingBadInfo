@@ -3,6 +3,8 @@
     package="com.example.breakingbadinfo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BreakingBadInfo">
+<!--        <service-->
+<!--            android:name=".QuoteService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true">-->
+
+<!--        </service>-->
+
+        <receiver
+            android:name=".QuoteReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

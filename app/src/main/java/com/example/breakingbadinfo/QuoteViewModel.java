@@ -22,7 +22,7 @@ public class QuoteViewModel extends AndroidViewModel {
         quoteRepository.insert(quotes);
     }
 
-    public LiveData<List<QuoteDataModel>> getAllQuote() {
+    public LiveData<List<QuoteDataModel>> getAllQuotes() {
         return getAllQuotes;
     }
 }
