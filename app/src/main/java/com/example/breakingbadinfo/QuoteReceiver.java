@@ -12,34 +12,32 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
-
 public class QuoteReceiver extends BroadcastReceiver {
 
     private static final int NOTIFY_ID = 1;
     private static final String CHANNEL_ID = "Quote channel";
-    QuoteFragment quoteFragment = new QuoteFragment();
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        QuoteFragment quoteFragment = new QuoteFragment();
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         intent = new Intent(context, HomeFragment.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0);
 
-        NotificationCompat.Builder builder =
+            NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setAutoCancel(true)
                         .setSmallIcon(R.drawable.ic_android_black_24dp)
                         .setWhen(System.currentTimeMillis())
                         .setContentIntent(pendingIntent)
-                        .setContentTitle("27!")
-                        .setContentText(quoteFragment.getRandomQuote())
+                        .setContentTitle("Цитата сериала BreakingBad")
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(quoteFragment.getRandomQuote()))
                         .setPriority(PRIORITY_HIGH);
 
         createChannelIfNeeded(notificationManager);
         notificationManager.notify(NOTIFY_ID, builder.build());
-        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public static void createChannelIfNeeded(NotificationManager manager) {

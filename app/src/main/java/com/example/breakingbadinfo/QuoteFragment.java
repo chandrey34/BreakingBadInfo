@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,24 +37,17 @@ import retrofit2.Response;
 public class QuoteFragment extends Fragment {
     private QuoteRepository quoteRepository;
     private QuoteViewModel quoteViewModel;
-    public String randomQuote;
+    private static String randomQuote;
 
     public QuoteFragment() {
     }
 
-    public String getRandomQuote() {
-        List<String> mTitle1 = new ArrayList<>();
-        mTitle1.add("Моковые данные");
-        mTitle1.add("Моковые данные 2");
-        mTitle1.add("Моковые данные 3");
-        int index = (new Random()).nextInt(mTitle1.size());
-        randomQuote = mTitle1.get(index);
-        Log.d("get111", "onChanged : " + randomQuote);
-        return randomQuote;
+    public void setRandomQuote(String randomQuote) {
+        QuoteFragment.randomQuote = randomQuote;
     }
 
-    public void setRandomQuote(String randomQuote) {
-        this.randomQuote = randomQuote;
+    public String getRandomQuote() {
+        return randomQuote;
     }
 
     @Override
@@ -87,7 +79,6 @@ public class QuoteFragment extends Fragment {
             public void onResponse(Call<List<QuoteApiResponse>> call, Response<List<QuoteApiResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     quoteRepository.insert(response.body());
-                    Log.d("main1", "onResponse: " + response.body().toString());
                 }
             }
 
@@ -100,21 +91,19 @@ public class QuoteFragment extends Fragment {
 
     public void observeDb() {
         quoteViewModel
-                .getAllQuotes
+                .getAllQuotes()
                 .observe(getViewLifecycleOwner(), new Observer<List<QuoteDataModel>>() {
                     @Override
                     public void onChanged(List<QuoteDataModel> quoteDataModels) {
-//                        List<String> quoteList = new ArrayList<>();
-//                        for (QuoteDataModel quoteDataModel : quoteDataModels) {
-//                            quoteList.add(quoteDataModel.getQuote());
-//                        }
-//                        int index = (new Random()).nextInt(quoteList.size());
-//                        String randomQuote = quoteList.get(index);
-//
-//                        Log.d("db123", "onChanged : " + randomQuote);
+                        List<String> quoteList = new ArrayList<>();
+                        for (QuoteDataModel quoteDataModel : quoteDataModels) {
+                            quoteList.add(quoteDataModel.getQuote());
+                        }
+                        int index = (new Random()).nextInt(quoteList.size());
+                        randomQuote = quoteList.get(index);
+                        setRandomQuote(randomQuote);
                     }
                 });
-//        Log.d("get111", "onChanged : " + randomQuote);
     }
 
     private void materialTimePicker(Context context) {

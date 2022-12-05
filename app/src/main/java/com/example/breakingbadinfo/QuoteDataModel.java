@@ -3,6 +3,7 @@ package com.example.breakingbadinfo;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "quote")
@@ -58,11 +59,5 @@ public class QuoteDataModel {
 
     public void setAuthor(@NonNull String author) {
         this.author = author;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "id: " + getQuoteId() + "/ " + "quote: " + getQuote() + "/ " + "autor: " + "/ " + getAuthor();
     }
 }
