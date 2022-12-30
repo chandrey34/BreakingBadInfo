@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.google.android.material.timepicker.TimeFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -98,10 +100,17 @@ public class QuoteFragment extends Fragment {
                         List<String> quoteList = new ArrayList<>();
                         for (QuoteDataModel quoteDataModel : quoteDataModels) {
                             quoteList.add(quoteDataModel.getQuote());
+                            quoteList.add(quoteDataModel.getAuthor());
                         }
-                        int index = (new Random()).nextInt(quoteList.size());
-                        randomQuote = quoteList.get(index);
-                        setRandomQuote(randomQuote);
+                        if (!quoteList.isEmpty()) {
+                            int index = (new Random()).nextInt(quoteList.size());
+                            randomQuote = quoteList.get(index);
+                            setRandomQuote(randomQuote);
+                        }
+                        else {
+                            Toast.makeText(getContext(), "Нет данных. Ошибка загрузки API.", Toast.LENGTH_SHORT).show();
+                        }
+                        Log.d("db123", "onChanged : " + quoteDataModels);
                     }
                 });
     }
@@ -123,20 +132,19 @@ public class QuoteFragment extends Fragment {
             calendar.set(Calendar.MINUTE, materialTimePicker.getMinute());
             calendar.set(Calendar.HOUR_OF_DAY, materialTimePicker.getHour());
 
+            Date today = new Date(System.currentTimeMillis());
+            if (calendar.getTime().before(today)) {
+                calendar.add(Calendar.DAY_OF_WEEK, 1);
+            }
+
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-            AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
+            AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis(), getAlarmActionPendingIntent());
             alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent());
 
             Toast.makeText(getContext(), "Уведомление сработает в " + simpleDateFormat.format(calendar.getTime()), Toast.LENGTH_SHORT).show();
         });
 
         materialTimePicker.show(getActivity().getSupportFragmentManager(), "picker");
-    }
-
-    private PendingIntent getAlarmInfoPendingIntent() {
-        Intent alarmInfoIntent = new Intent();
-        alarmInfoIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getBroadcast(getActivity(), 0, alarmInfoIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     private PendingIntent getAlarmActionPendingIntent() {

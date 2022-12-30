@@ -3,7 +3,6 @@ package com.example.breakingbadinfo;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "quote")
@@ -32,9 +31,6 @@ public class QuoteDataModel {
         this.quoteId = quoteApiResponse.getQuoteId();
         this.quote = quoteApiResponse.getQuote();
         this.author = quoteApiResponse.getAuthor();
-    }
-
-    public QuoteDataModel() {
     }
 
     public int getQuoteId() {

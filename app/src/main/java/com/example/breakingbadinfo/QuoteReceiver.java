@@ -8,6 +8,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 
 
 import androidx.core.app.NotificationCompat;
@@ -22,14 +24,14 @@ public class QuoteReceiver extends BroadcastReceiver {
         QuoteFragment quoteFragment = new QuoteFragment();
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        intent = new Intent(context, HomeFragment.class);
+        intent = new Intent(context, QuoteReceiver.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context.getApplicationContext(), 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
             NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setAutoCancel(true)
-                        .setSmallIcon(R.drawable.ic_android_black_24dp)
+                        .setSmallIcon(R.drawable.notification_logo)
                         .setWhen(System.currentTimeMillis())
                         .setContentIntent(pendingIntent)
                         .setContentTitle("Цитата сериала BreakingBad")
