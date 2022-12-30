@@ -1,5 +1,6 @@
 package com.example.breakingbadinfo;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -10,12 +11,12 @@ import java.util.List;
 @Dao
 public interface QuoteDao {
 
-    @Query("SELECT * FROM quotedatamodel")
-    List<QuoteDataModel> getAll();
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<QuoteDataModel> quotes);
+    void insert(List<QuoteDataModel> quotes);
 
-    @Query("DELETE FROM quotedatamodel")
-    void deleteAll();
+    @Query("SELECT * FROM quote")
+    LiveData<List<QuoteDataModel>> getAllQuotes();
+
+    @Query("DELETE FROM quote")
+    void delete();
 }
